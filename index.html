@@ -2,24 +2,61 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>LAMPAH</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAMPAH - RS Islam Lumajang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1b5e20">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow: hidden;
+      background: #ffffff;
     }
+    #loading {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #1b5e20;
+      background: #ffffff;
+      transition: opacity .3s;
+    }
+    #loading.hilang { opacity: 0; pointer-events: none; }
+    .spinner {
+      width: 38px; height: 38px;
+      border: 4px solid #c8e6c9;
+      border-top-color: #1b5e20;
+      border-radius: 50%;
+      animation: putar 0.9s linear infinite;
+    }
+    @keyframes putar { to { transform: rotate(360deg); } }
     iframe {
       display: block;
       width: 100vw;
       height: 100vh;
+      height: 100dvh;
       border: none;
     }
   </style>
 </head>
 <body>
-  <iframe src="https://script.google.com/macros/s/AKfycbyVjx4FfMrbIy1ze5RSm7mcYE8J01KsvoRa7X8b-NNPryEa2tS_Q4tIlDri06rgZIcs/exec"></iframe>
+  <div id="loading">
+    <div class="spinner"></div>
+    <div>Memuat LAMPAH...</div>
+  </div>
+
+  <iframe
+    src="https://script.google.com/macros/s/AKfycbyp5CRLDWuXoS-wwFTAzZI8XdeANstA9HFcy5Fn4_tz3aS3puHLPKXwB0H8N3Y56_zD9Q/exec"
+    title="LAMPAH"
+    allow="clipboard-write; fullscreen"
+    onload="document.getElementById('loading').classList.add('hilang')">
+  </iframe>
 </body>
 </html>
